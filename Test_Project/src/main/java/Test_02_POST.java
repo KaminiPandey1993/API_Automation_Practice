@@ -28,5 +28,26 @@ public class Test_02_POST {
                 then().statusCode(201 );
 
     }
+    
+     @Test
+    public void testUserLoginUnsuccefulAndStatusCode() {
+
+        JSONObject jsonRequest = new JSONObject();
+        jsonRequest.put("email", "peter@klaven");
+
+        given().
+                header("Content-Type", "application/json").
+                contentType(ContentType.JSON).
+                accept(ContentType.JSON).
+                body(jsonRequest.toJSONString()).
+                when().
+                post("https://reqres.in/api/login").
+                then()
+                .assertThat()
+                .statusCode(400 )
+                .body("error", Matchers.equalTo("Missing password"))
+                .log().all();
+
+    }
 
     }
