@@ -7,8 +7,11 @@ Automating api available at https://reqres.in/.
 ###### **Prerequisites**
 
   Java
+  
   TestNG
+  
   IntelliJ
+  
 
 ###### **Running tests in Intellij**
 
